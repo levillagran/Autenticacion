@@ -28,7 +28,7 @@ public class LoginController {
 	public String loginCheck() {
 		LOG.info("METHOD: loginCheck()");
 		LOG.info("Returning to contacts view");
-		return "redirect:/contacts/showcontacts";
+		return "redirect:/wellcome/showPage";
 	}
 
 }
