@@ -1,38 +1,49 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="utf-8"/>
+<head>
+<meta charset="utf-8" />
 
-    <title>Backend Ninja - Signin</title>
+<title>Signin</title>
 
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+	<!-- Bootstrap core CSS-->
+    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="#" th:href="@{/css/login.css}" rel="stylesheet" />
-    <link href="#" th:href="@{/css/style.css}" rel="stylesheet" />
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.css" rel="stylesheet" type="text/css">
 
-  </head>
+	<!-- Custom styles for this template-->
+    <link href="css/signin.css" rel="stylesheet">
 
-  <body>
 
-    <div class="container">
+</head>
 
-      <form class="form-signin" th:action="@{/logincheck}" method="POST">
-      	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-        <h2 class="form-signin-heading">Sign in</h2>
-        <label for="inputEmail" class="sr-only">Username</label>
-        <input type="text" class="form-control" placeholder="Username" name="username" id="username"/>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" class="form-control" placeholder="Password" name="password" id="password"/>
-        <div th:if="${error != null}" class="alert alert-danger" role="alert">Invalid username or password!</div>
-        <div th:if="${logout != null}" class="alert alert-info" role="alert">Logout successfully!</div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">
-        	<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Sign in
-        </button>
-      </form>
-
-    </div> <!-- /container -->
-
+<body class="text-center">
+	<form class="form-signin" th:action="@{/logincheck}" method="POST">
+		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+		<img class="mb-4" src="imgs/logo.jpg" alt="" width="92" height="72">
+		<h1 class="h3 mb-3 font-weight-normal"><i class="fa fa-sign-in" aria-hidden="true"></i>Autenticación</h1>
+		<label for="inputEmail" class="sr-only">Username</label> 
+		<input type="text" class="form-control" placeholder="Usuario" name="username" id="username" required autofocus/> 
+		<label for="inputPassword" class="sr-only">Password</label> 
+		<input type="password" class="form-control" placeholder="Clave" name="password"	id="password" required/>
+		
+		<div th:if="${error != null}" class="alert alert-danger" role="alert">Usuario o Clave invalido!</div>
+		<div th:if="${logout != null}" class="alert alert-info" role="alert">Salida	correcta!</div>
+		<div class="checkbox mb-3">
+    		<label>
+      			<input type="checkbox" value="remember-me"> Remember me
+    		</label>
+  		</div>
+		<button class="btn btn-lg btn-primary btn-block" type="submit">
+			<i class="fa fa-sign-in-alt" aria-hidden="true"></i> Entrar
+		</button>
+		<div class="text-center">
+            <a class="d-block small mt-3" >Register an Account</a>
+			<!--th:href="@{/register}" -->
+            <a class="d-block small" href="forgot-password.html">Forgot Password?</a>
+            <p class="mt-5 mb-3 text-muted">&copy; 2019</p>
+          </div>
+		
+	</form>
 </body>
 </html>

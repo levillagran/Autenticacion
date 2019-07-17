@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import ec.com.vill.constant.ViewConstant;
 
 @Controller
-@RequestMapping("/wellcome")
+@RequestMapping("/welcome")
 public class ContactController {
 
 	private static final Log LOG = LogFactory.getLog(ContactController.class);
